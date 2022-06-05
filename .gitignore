@@ -1,0 +1,11 @@
+# modules
+node_modules
+
+# build
+dist
+
+# general
+.DS_Store
+
+# tool
+.vscode

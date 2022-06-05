@@ -1,0 +1,43 @@
+Arguments: 
+  /Users/johnsmith/.nvm/versions/node/v14.17.1/bin/node /usr/local/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js add -D @type/node typescript
+
+PATH: 
+  /Users/johnsmith/.rvm/gems/ruby-2.5.1/bin:/Users/johnsmith/.rvm/gems/ruby-2.5.1@global/bin:/Users/johnsmith/.rvm/rubies/ruby-2.5.1/bin:/Users/johnsmith/bin:/usr/local/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/Users/johnsmith/go/bin:/usr/local/go/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Users/johnsmith/.rvm/gems/ruby-2.5.1/bin:/Users/johnsmith/.rvm/gems/ruby-2.5.1@global/bin:/Users/johnsmith/.rvm/rubies/ruby-2.5.1/bin:/Users/johnsmith/bin:/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:/Users/johnsmith/go/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/johnsmith/.cargo/bin:/Users/johnsmith/.rvm/bin:/Users/johnsmith/Library/Android/sdk/emulator:/Users/johnsmith/Library/Android/sdk/tools:/Users/johnsmith/Library/Android/sdk/tools/bin:/Users/johnsmith/Library/Android/sdk/platform-tools:/Users/johnsmith/.nvm/versions/node/v16.4.0/bin:/Users/johnsmith/.rvm/bin:/Users/johnsmith/Library/Android/sdk/emulator:/Users/johnsmith/Library/Android/sdk/tools:/Users/johnsmith/Library/Android/sdk/tools/bin:/Users/johnsmith/Library/Android/sdk/platform-tools:/Users/johnsmith/.nvm/versions/node/v16.4.0/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.17.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@type%2fnode: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:67029:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:140883:22)
+      at Request.emit (events.js:375:28)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:141855:10)
+      at Request.emit (events.js:375:28)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:141777:12)
+      at Object.onceWrapper (events.js:481:28)
+      at IncomingMessage.emit (events.js:387:35)
+      at endReadableNT (internal/streams/readable.js:1317:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+
+npm manifest: 
+  {
+    "name": "node-express",
+    "version": "1.0.0",
+    "description": "nodejs monolithic server template",
+    "main": "index.js",
+    "author": "John Smith",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

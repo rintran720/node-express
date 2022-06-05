@@ -1,0 +1,17 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "nodejs monolithic server template",
+  "main": "src/app.ts",
+  "author": "John Smith",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src",
+    "start": "node dist"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.40",
+    "typescript": "^4.7.3"
+  }
+}
