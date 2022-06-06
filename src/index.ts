@@ -1,14 +1,15 @@
 import compression from "compression";
-import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import config from "./common/config";
+import mongo from "./common/mongo";
 
-dotenv.config();
+mongo();
 
 const app = express();
 app.use(helmet());
-app.use(morgan("combine"));
+app.use(morgan("common"));
 app.use(
   compression({
     level: 6,
@@ -16,7 +17,7 @@ app.use(
   })
 );
 
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = config.server.port;
 
 app.listen(PORT, () => {
   console.log(`Application start at port ${PORT}`);
