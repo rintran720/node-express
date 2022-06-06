@@ -1,0 +1,6 @@
+GET http://localhost:3000/v1/user
+
+POST  http://localhost:3000/v1/user
+{
+  email: "rintran720@gmail.com"
+}
