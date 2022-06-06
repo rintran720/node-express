@@ -1,4 +1,5 @@
 import compression from "compression";
+import cors from "cors";
 import express, {
   ErrorRequestHandler,
   NextFunction,
@@ -15,6 +16,12 @@ import mongoose from "./common/mongo";
 const mongo = mongoose();
 
 const app = express();
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  })
+);
 app.use(helmet());
 app.use(morgan("common"));
 app.use(
