@@ -1,7 +1,7 @@
-import http from "http";
-import app from "./app";
-import config from "./common/config";
-import socketio from "./common/socketio";
+import http from 'http';
+import app from './app';
+import config from './common/config';
+import socketio from './common/socketio';
 
 const PORT = config.server.port;
 const server = http.createServer(app);
@@ -13,4 +13,4 @@ server.listen(PORT, () => {
   console.log(`Application start at port ${PORT}`);
 });
 
-process.on("SIGINT", app.prototype.exitProcessCallback);
+process.on('SIGINT', app.prototype.exitProcessCallback);
