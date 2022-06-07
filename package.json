@@ -9,8 +9,8 @@
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "start": "node dist",
-    "lint": "tslint --project tsconfig.json",
-    "lint-fix": "tslint --project tsconfig.json --fix"
+    "lint": "tslint --project tsconfig.json --fix",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
@@ -26,6 +26,7 @@
     "@types/socket.io": "^3.0.2",
     "@types/uuid": "^8.3.4",
     "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
     "tslint": "^6.1.3",
     "typescript": "^4.7.3"
   },
