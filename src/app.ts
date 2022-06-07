@@ -11,8 +11,8 @@ import HttpError from "http-errors";
 import morgan from "morgan";
 import { v4 as uuid } from "uuid";
 import v1Router from "./api/v1";
-import { logError } from "./api/v1/utils/logError";
 import mongoose from "./common/mongo";
+import { logError } from "./common/utils/logError";
 const mongo = mongoose();
 
 const app = express();
@@ -33,6 +33,14 @@ app.use(
 
 app.use("/v1", v1Router);
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.get("/socket.js", (req, res) => {
+  res.sendFile(__dirname + "/socket.js");
+});
+
 // Handle errors
 app.use((req, res, next) => {
   next(new HttpError.NotFound());
@@ -40,7 +48,7 @@ app.use((req, res, next) => {
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   req.url;
-  logError(`idError---${uuid()}---${req.url}---${req.method}---${err.message}`);
+  logError(`errorId---${uuid()}---${req.url}---${req.method}---${err.message}`);
   res.status(err.status || 500);
   res.json({
     status: err.status || 500,
