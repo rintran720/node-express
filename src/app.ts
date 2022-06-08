@@ -31,7 +31,7 @@ app.use(
   })
 );
 
-app.use('/v1', v1Router);
+app.use('/api/v1', v1Router);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
