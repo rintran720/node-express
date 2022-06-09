@@ -1,6 +1,9 @@
-GET http://localhost:3000/v1/user
+GET http://localhost:3000/v1/users
 
-POST  http://localhost:3000/v1/user
+
+POST http://localhost:3000/v1/users HTTP/1.1
+header name: header value
+
 {
   email: "rintran720@gmail.com"
 }

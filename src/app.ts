@@ -1,18 +1,15 @@
+import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
-import express, {
-  ErrorRequestHandler,
-  NextFunction,
-  Request,
-  Response
-} from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
-import HttpError from 'http-errors';
+import createError from 'http-errors';
 import morgan from 'morgan';
 import { v4 as uuid } from 'uuid';
 import v1Router from './api/v1';
 import mongoose from './common/mongo';
 import { logError } from './common/utils/logError';
+
 const mongo = mongoose();
 
 const app = express();
@@ -24,6 +21,7 @@ app.use(
 );
 app.use(helmet());
 app.use(morgan('common'));
+app.use(bodyParser.json());
 app.use(
   compression({
     level: 6,
@@ -43,7 +41,7 @@ app.get('/example.js', (req, res) => {
 
 // Handle errors
 app.use((req, res, next) => {
-  next(new HttpError.NotFound());
+  next(new createError.NotFound());
 });
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {

@@ -10,6 +10,7 @@ dist
 
 # general
 .DS_Store
+*.log
 
 # tool
 .vscode
