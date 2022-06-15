@@ -21,6 +21,11 @@ app.use(
 );
 app.use(helmet());
 app.use(morgan('common'));
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 app.use(bodyParser.json());
 app.use(
   compression({

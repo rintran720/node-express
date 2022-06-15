@@ -1,3 +1,4 @@
+import { NextFunction } from 'express';
 import { Server, Socket } from 'socket.io';
 import logFormat from '../utils/logFormat';
 const socketio = (httpServer: any) => {
@@ -18,6 +19,12 @@ const socketio = (httpServer: any) => {
       console.log(socket.id);
       io.emit('chat message', msg);
     });
+  });
+
+  io.use((socket: Socket, next: any) => {
+    // check jwt
+    const token = socket.handshake.auth.token;
+    next();
   });
 
   return io;

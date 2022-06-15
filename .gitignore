@@ -5,6 +5,8 @@ node_modules
 yarn.lock
 yarn-error.log
 
+src/api/**/common/logs/*.log
+
 # build
 dist
 
