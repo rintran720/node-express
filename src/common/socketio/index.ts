@@ -10,7 +10,7 @@ const socketio = (httpServer: any) => {
     // client-side
     socket.on('disconnect', () => {
       console.log(
-        logFormat('ioDisconnect', `${socket.id}---Disonnected to socketio`)
+        logFormat('ioDisconnect', `${socket.id}---Disonnected to socketio`),
       );
     });
 

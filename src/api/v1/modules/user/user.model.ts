@@ -5,16 +5,17 @@ export const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    index: true
+    index: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   isAdmin: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+    required: false,
+  },
 });
 
 const UserModel = mongoose.model('user', UserSchema);

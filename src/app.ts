@@ -3,10 +3,11 @@ import compression from 'compression';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
-import createError from 'http-errors';
+import createHttpError from 'http-errors';
 import morgan from 'morgan';
 import { v4 as uuid } from 'uuid';
 import v1Router from './api/v1';
+import config from './common/config';
 import mongoose from './common/mongo';
 import { logError } from './common/utils/logError';
 
@@ -16,22 +17,22 @@ const app = express();
 app.use(
   cors({
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-  })
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  }),
 );
 app.use(helmet());
 app.use(morgan('common'));
 app.use(
   bodyParser.urlencoded({
-    extended: true
-  })
+    extended: true,
+  }),
 );
 app.use(bodyParser.json());
 app.use(
   compression({
     level: 6,
-    threshold: 100 * 1000 // bytes
-  })
+    threshold: 100 * 1000, // bytes
+  }),
 );
 
 app.use('/api/v1', v1Router);
@@ -46,7 +47,7 @@ app.get('/example.js', (req, res) => {
 
 // Handle errors
 app.use((req, res, next) => {
-  next(new createError.NotFound());
+  next(new createHttpError.NotFound());
 });
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
@@ -55,7 +56,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.json({
     status: err.status || 500,
     message: err.message,
-    links: ['http://localhost:3000/api-docs']
+    metadata: err.metadata || {},
+    links: [`${config.server.url}/api/v1/api-docs`],
   });
 });
 app.prototype.exitProcessCallback = async () => {
