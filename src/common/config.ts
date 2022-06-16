@@ -14,6 +14,7 @@ export default {
       'b91028378997c0b3581821456edefd0ec7958f953f8c1a6dd856e2de27f0d7e0fb1a01cda20d1a6890267e629f0ff5dc7ee46bce382aba62d13989614417606a',
     expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN || '1h',
     refreshExpiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN || '1h',
+    saltRound: Number(process.env.SALT_ROUND) || 10,
   },
   mongo: {
     url: process.env.MONGO_URL || 'mongodb://localhost:27017/test-db',

@@ -5,15 +5,16 @@ export const create = async ({ email, password }: UserCreateDto) => {
   try {
     return await UserModel.create({ email, password });
   } catch (err: any) {
-    throw new Error(err.message);
+    // throw new Error(err.message);
+    throw new Error('Can not create account');
   }
 
   // short: return UserModel.create({ email, password });
 };
 
-export const get = async ({ email, password }: UserLoginDto) => {
+export const get = async (queryObject: object) => {
   try {
-    return await UserModel.findOne({ email, password });
+    return await UserModel.findOne(queryObject);
   } catch (err: any) {
     throw new Error(err.message);
   }

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { access } from 'fs';
 import { generateAccessToken } from '../../utils/accessToken';
+import { comparePasswordSync, hashPasswordSync } from '../../utils/password';
 import {
   decodeRefreshToken,
   generateRefreshToken,
@@ -9,8 +10,20 @@ import UserRepository from '../user/user.repository';
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body;
-    const user = await UserRepository.create({ email, password });
+    const { email = '', password = '' } = req.body;
+    const existedUser = await UserRepository.get({ email });
+
+    if (existedUser) {
+      throw new Error('Email is used');
+    }
+
+    const hashedPassword = hashPasswordSync(password);
+    const user = await UserRepository.create({
+      email,
+      password: hashedPassword,
+    });
+
+    delete user.password;
     return res.status(200).json({ data: user });
   } catch (err: any) {
     return res.status(401).json({ message: err.message });
@@ -20,16 +33,19 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    const user = await UserRepository.get({ email, password });
+    const user = await UserRepository.get({ email });
     if (user) {
-      const accessToken = generateAccessToken({
-        userId: user._id,
-      });
-      const refreshToken = generateRefreshToken({ userId: user._id });
+      const compare = comparePasswordSync(password, user.password);
+      if (compare) {
+        const accessToken = generateAccessToken({
+          userId: user._id,
+        });
+        const refreshToken = generateRefreshToken({ userId: user._id });
 
-      return res
-        .status(200)
-        .json({ data: { token: accessToken, refreshToken } });
+        return res
+          .status(200)
+          .json({ data: { token: accessToken, refreshToken } });
+      }
     }
     throw new Error('Unexisted user!');
   } catch (err: any) {

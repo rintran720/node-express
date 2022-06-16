@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import createHttpError from 'http-errors';
-import Joi, { ValidationError } from 'joi';
+import Joi from 'joi';
 import validationGenerator from '../../utils/validationGenerator';
 
 export const registerSchema = Joi.object({
