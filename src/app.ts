@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import compression from 'compression';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
@@ -28,6 +29,7 @@ app.use(
   }),
 );
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(
   compression({
     level: 6,
