@@ -12,9 +12,9 @@ export const create = async ({ email, password }: UserCreateDto) => {
   // short: return UserModel.create({ email, password });
 };
 
-export const get = async (queryObject: object) => {
+export const get = async (query: object) => {
   try {
-    return await UserModel.findOne(queryObject);
+    return await UserModel.findOne(query);
   } catch (err: any) {
     throw new Error(err.message);
   }

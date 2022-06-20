@@ -6,6 +6,7 @@ import {
   decodeRefreshToken,
   generateRefreshToken,
 } from '../../utils/refreshToken';
+import { errorFormater, successFormater } from '../../utils/responseFormater';
 import UserRepository from '../user/user.repository';
 
 export const register = async (req: Request, res: Response) => {
@@ -24,9 +25,9 @@ export const register = async (req: Request, res: Response) => {
     });
 
     delete user.password;
-    return res.status(200).json({ data: user });
+    return res.status(200).json(successFormater(user));
   } catch (err: any) {
-    return res.status(401).json({ message: err.message });
+    return res.status(401).json(errorFormater(err.message));
   }
 };
 
@@ -44,12 +45,12 @@ export const login = async (req: Request, res: Response) => {
 
         return res
           .status(200)
-          .json({ data: { token: accessToken, refreshToken } });
+          .json(successFormater({ token: accessToken, refreshToken }));
       }
     }
     throw new Error('Unexisted user!');
   } catch (err: any) {
-    return res.status(401).json({ message: err.message });
+    return res.status(401).json(errorFormater(err.message));
   }
 };
 
@@ -65,12 +66,12 @@ export const refresh = async (req: Request, res: Response) => {
       }
 
       const accessToken = generateAccessToken({ userId });
-      return res.status(200).json({ data: { token: accessToken } });
+      return res.status(200).json(successFormater({ token: accessToken }));
     } else {
       throw new Error('Invalid token');
     }
   } catch (err: any) {
-    return res.status(401).json({ message: err.message });
+    return res.status(401).json(errorFormater(err.message));
   }
 };
 
