@@ -1,6 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
+import { v4 as uuid } from 'uuid';
 
 export const UserSchema = new Schema({
+  _id: {
+    type: String,
+    default: () => {
+      return uuid();
+    },
+  },
   email: {
     type: String,
     required: true,

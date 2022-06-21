@@ -1,9 +1,11 @@
-GET http://localhost:3000/v1/users
+### get a user
+GET http://localhost:4860/api/v1/users/bd2501c6-b149-47b3-9755-22fa3109bdff
 
 
-POST http://localhost:3000/v1/users HTTP/1.1
-header name: header value
+### update a user info
+PATCH  http://localhost:4860/api/v1/users/bd2501c6-b149-47b3-9755-22fa3109bdff HTTP/1.1
+Content-Type: application/json
 
 {
-  email: "rintran720@gmail.com"
+  "name": "John Smith 2"
 }

@@ -1,1 +1,9 @@
 17-06-2022 10:48:39---errorId---305ac3b6-4571-4d55-bc08-84a1f0032461---/favicon.ico---GET---Not Found
+21-06-2022 08:40:54---errorId---a4f2c961-dd8a-42f6-85a9-8ed638259b9b---/api/v1/users---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:41:12---errorId---eef9c50a-b30b-4964-b92f-c1af308165d3---/api/v1/books---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:41:16---errorId---b38beeeb-0fd2-400d-8dee-88d2b33bb799---/api/v1/books---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:41:17---errorId---26acc09f-ffae-4e90-839a-9b70426837ea---/api/v1/books---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:42:51---errorId---b4ba7c82-9255-4e72-9255-58c36838bf3e---/api/v1/books---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:44:22---errorId---e4eca994-07af-4e18-be80-8fd012eefc1e---/api/v1/books---POST---Unexpected token n in JSON at position 4
+21-06-2022 08:44:42---errorId---0204ddd4-fb74-4da5-ad35-48a1bb8973ce---/api/v1/books---POST---"name" must be a valid email
+21-06-2022 09:47:31---errorId---043592e3-6a85-451d-91d0-dd3e15676bc5---/api/v1/books/bd2501c6-b149-47b3-9755-22fa3109bdff---PATCH---"desc" is required

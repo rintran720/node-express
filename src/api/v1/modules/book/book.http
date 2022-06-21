@@ -1,0 +1,47 @@
+
+### get books
+GET http://localhost:4860/api/v1/books
+
+### create a book
+POST http://localhost:4860/api/v1/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Who am I?",
+  "desc": "Make you understand your self",
+  "author": "John Smith"
+}
+
+### get a book
+GET http://localhost:4860/api/v1/books/bd2501c6-b149-47b3-9755-22fa3109bdff
+
+
+### update a book
+PATCH  http://localhost:4860/api/v1/books/bd2501c6-b149-47b3-9755-22fa3109bdff HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Who am I 4?"
+}
+
+### replace a book
+PUT http://localhost:4860/api/v1/books/bd2501c6-b149-47b3-9755-22fa3109bdff HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Who am I 2?",
+  "desc": "Make you understand your self 2",
+  "author": "John Smith 2"
+}
+
+### delete a book
+DELETE http://localhost:4860/api/v1/books/bd2501c6-b149-47b3-9755-22fa3109bdff HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Who am I?",
+  "desc": "Make you understand your self",
+  "author": "John Smith"
+}
+
+

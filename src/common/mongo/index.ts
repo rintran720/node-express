@@ -3,7 +3,7 @@ import config from '../config';
 
 const mongo = () => {
   mongoose
-    .connect(config.mongo.url)
+    .connect(config.mongo.url, { autoIndex: false }) // recommended manual index
     .then((result) => {
       // console.info("Connect mongodb success!");
     })

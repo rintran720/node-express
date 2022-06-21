@@ -1,4 +1,4 @@
-import { UserCreateDto, UserLoginDto } from './user.dto';
+import { UserCreateDto, UserUpdateDto } from './user.dto';
 import UserModel from './user.model';
 
 export const create = async ({ email, password }: UserCreateDto) => {
@@ -8,8 +8,6 @@ export const create = async ({ email, password }: UserCreateDto) => {
     // throw new Error(err.message);
     throw new Error('Can not create account');
   }
-
-  // short: return UserModel.create({ email, password });
 };
 
 export const get = async (query: object) => {
@@ -18,10 +16,16 @@ export const get = async (query: object) => {
   } catch (err: any) {
     throw new Error(err.message);
   }
-
-  // short: return UserModel.create({ email, password });
 };
 
-const UserRepository = { create, get };
+export const update = async (id: string, updateObj: UserUpdateDto) => {
+  try {
+    return await UserModel.findOneAndUpdate({ _id: id }, updateObj);
+  } catch (err: any) {
+    throw new Error(err.message);
+  }
+};
+
+const UserRepository = { create, get, update };
 
 export default UserRepository;
