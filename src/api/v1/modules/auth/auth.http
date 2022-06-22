@@ -1,9 +1,24 @@
-GET http://localhost:3000/v1/users
-
-
-POST http://localhost:3000/v1/users HTTP/1.1
-header name: header value
+### register
+POST http://localhost:4860/api/v1/auth/register HTTP/1.1
+Content-Type: application/json
 
 {
-  email: "rintran720@gmail.com"
+  "email": "r2@gmail.com",
+  "password": "Abc12323456!"
 }
+
+### login
+POST http://localhost:4860/api/v1/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "r2@gmail.com",
+  "password": "Abc12323456!"
+}
+
+### refresh
+POST http://localhost:4860/api/v1/auth/refresh HTTP/1.1
+Content-Type: application/json
+ftoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MTRjMTcwOS1hNDNjLTRlZTYtOWU0My1mY2U3NWRlYTg0NDgiLCJpYXQiOjE2NTU4NTg5MjksImV4cCI6MTY1NTg2MjUyOX0.AzAw2YvW6W8_raKe9oz7mzqKqVpsDJbRHSrljJ5u8MA
+
+{}
