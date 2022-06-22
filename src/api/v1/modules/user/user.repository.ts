@@ -1,7 +1,11 @@
-import { UserCreateDto, UserUpdateDto } from './user.dto';
+import {
+  UserCreateType,
+  UserReplaceType,
+  UserUpdateType,
+} from './user.interface';
 import UserModel from './user.model';
 
-export const create = async ({ email, password }: UserCreateDto) => {
+export const create = async ({ email, password }: UserCreateType) => {
   try {
     return await UserModel.create({ email, password });
   } catch (err: any) {
@@ -18,7 +22,7 @@ export const get = async (query: object) => {
   }
 };
 
-export const update = async (id: string, updateObj: UserUpdateDto) => {
+export const update = async (id: string, updateObj: UserUpdateType) => {
   try {
     return await UserModel.findOneAndUpdate({ _id: id }, updateObj);
   } catch (err: any) {
@@ -26,6 +30,20 @@ export const update = async (id: string, updateObj: UserUpdateDto) => {
   }
 };
 
-const UserRepository = { create, get, update };
+export const replace = async (id: string, replaceObj: UserReplaceType) => {
+  try {
+    const user = await UserModel.findOne({ _id: id });
+    if (!user) throw new Error('The user unexisted!');
+
+    return await UserModel.findOneAndReplace(
+      { _id: id },
+      { ...replaceObj, password: user.password },
+    );
+  } catch (err: any) {
+    throw new Error(err.message);
+  }
+};
+
+const UserRepository = { create, get, update, replace };
 
 export default UserRepository;

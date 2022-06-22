@@ -1,11 +1,23 @@
 ### get a user
-GET http://localhost:4860/api/v1/users/bd2501c6-b149-47b3-9755-22fa3109bdff
-
+GET http://localhost:4860/api/v1/users/814c1709-a43c-4ee6-9e43-fce75dea8448
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MTRjMTcwOS1hNDNjLTRlZTYtOWU0My1mY2U3NWRlYTg0NDgiLCJpYXQiOjE2NTU4NjQyMjIsImV4cCI6MTY4NzQyMTgyMn0.tfuAV5siAJapHFZ-CV2U4jLRnzTdeIm1jsTLEEno-uw
 
 ### update a user info
-PATCH  http://localhost:4860/api/v1/users/bd2501c6-b149-47b3-9755-22fa3109bdff HTTP/1.1
+PATCH  http://localhost:4860/api/v1/users/814c1709-a43c-4ee6-9e43-fce75dea8448 HTTP/1.1
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MTRjMTcwOS1hNDNjLTRlZTYtOWU0My1mY2U3NWRlYTg0NDgiLCJpYXQiOjE2NTU4NjQyMjIsImV4cCI6MTY4NzQyMTgyMn0.tfuAV5siAJapHFZ-CV2U4jLRnzTdeIm1jsTLEEno-uw
 
 {
-  "name": "John Smith 2"
+  "name": "John Smith 5"
+}
+
+
+### replace a user info
+PUT  http://localhost:4860/api/v1/users/814c1709-a43c-4ee6-9e43-fce75dea8448 HTTP/1.1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MTRjMTcwOS1hNDNjLTRlZTYtOWU0My1mY2U3NWRlYTg0NDgiLCJpYXQiOjE2NTU4NjQyMjIsImV4cCI6MTY4NzQyMTgyMn0.tfuAV5siAJapHFZ-CV2U4jLRnzTdeIm1jsTLEEno-uw
+
+{
+  "email": "r2@gmail.com",
+  "name": "John Smith 5"
 }

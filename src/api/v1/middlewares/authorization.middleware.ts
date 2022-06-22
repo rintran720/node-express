@@ -10,7 +10,6 @@ export const authorizationMiddleware = (
   try {
     const accessToken = req.headers.authorization || '';
     const decoded: any = decodeAccessToken(accessToken);
-    console.log(decoded);
     if (decoded) {
       const { userId, exp } = decoded;
       const now = Math.round(new Date().getTime() / 1000);

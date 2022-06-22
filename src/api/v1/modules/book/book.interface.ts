@@ -1,16 +1,16 @@
-export type BookCreateDto = {
+export type BookCreateType = {
   name: string;
   desc: string;
   author: string;
 };
 
-export type BookUpdateDto = {
+export type BookUpdateType = {
   name?: string;
   desc?: string;
   author?: string;
 };
 
-export type BookReplaceDto = {
+export type BookReplaceType = {
   name: string;
   desc: string;
   author: string;

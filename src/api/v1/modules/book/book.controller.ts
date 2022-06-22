@@ -40,7 +40,6 @@ export const update = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const obj = req.body;
-    console.log(obj);
 
     await BookRepository.update(id, obj);
     const book = await BookRepository.get({ _id: id });
@@ -57,7 +56,6 @@ export const replace = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const obj = req.body;
-    console.log(obj);
 
     await BookRepository.replace(id, obj);
     const book = await BookRepository.get({ _id: id });

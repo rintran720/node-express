@@ -4,7 +4,12 @@ import validationGenerator from '../../utils/validationGenerator';
 
 export const updateSchema = Joi.object({
   email: Joi.string().email(),
-  password: Joi.string().min(8).max(256),
+  name: Joi.string().min(1).max(256),
+});
+
+export const replaceSchema = Joi.object({
+  email: Joi.string().email().required(),
+  name: Joi.string().min(1).max(256).required(),
 });
 
 export const updateValidation = async (
@@ -15,8 +20,17 @@ export const updateValidation = async (
   validationGenerator(updateSchema, next)(req.body);
 };
 
+export const replaceValidation = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  validationGenerator(replaceSchema, next)(req.body);
+};
+
 const UserValidation = {
   updateValidation,
+  replaceValidation,
 };
 
 export default UserValidation;

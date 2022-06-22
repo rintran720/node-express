@@ -23,6 +23,12 @@ export const UserSchema = new Schema({
     default: false,
     required: false,
   },
+  name: {
+    type: String,
+    default: '',
+    unique: true,
+    index: true,
+  },
 });
 
 const UserModel = mongoose.model('user', UserSchema);

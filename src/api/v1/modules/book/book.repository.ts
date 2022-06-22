@@ -1,7 +1,11 @@
-import { BookCreateDto, BookReplaceDto, BookUpdateDto } from './book.dto';
+import {
+  BookCreateType,
+  BookReplaceType,
+  BookUpdateType,
+} from './book.interface';
 import BookModel from './book.model';
 
-export const create = async ({ name, desc, author }: BookCreateDto) => {
+export const create = async ({ name, desc, author }: BookCreateType) => {
   try {
     return await BookModel.create({ name, desc, author });
   } catch (err: any) {
@@ -26,7 +30,7 @@ export const getlist = async (query: object) => {
   }
 };
 
-export const update = async (id: string, updateObj: BookUpdateDto) => {
+export const update = async (id: string, updateObj: BookUpdateType) => {
   try {
     return await BookModel.findOneAndUpdate({ _id: id }, updateObj);
   } catch (err: any) {
@@ -34,13 +38,14 @@ export const update = async (id: string, updateObj: BookUpdateDto) => {
   }
 };
 
-export const replace = async (id: string, replaceObj: BookCreateDto) => {
+export const replace = async (id: string, replaceObj: BookCreateType) => {
   try {
     return await BookModel.findOneAndReplace({ _id: id }, replaceObj);
   } catch (err: any) {
     throw new Error(err.message);
   }
 };
+
 export const remove = async (id: string) => {
   try {
     return await BookModel.findOneAndDelete({ _id: id });
