@@ -23,11 +23,6 @@ app.use(
 );
 app.use(helmet());
 app.use(morgan('common'));
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  }),
-);
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
@@ -45,6 +40,10 @@ app.get('/', (req, res) => {
 
 app.get('/example.js', (req, res) => {
   res.sendFile(__dirname + '/example.js');
+});
+
+app.get('/hello', (req, res) => {
+  res.status(200).json({});
 });
 
 // Handle errors
